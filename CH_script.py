@@ -7,9 +7,13 @@ if __name__ == "__main__":
 
 	parser = argparse.ArgumentParser()
 
-	# Basic model parameters.
+	# Crimson parameters.
 	parser.add_argument('--monitor_id', type=int, default=0,
                     	help='Monitor ID of the CrimsonHexagon monitor ')
+#	parser.add_argument('--start_date', type=str, default='0',
+#                    	help='Start Date for monitoring ')
+#	parser.add_argument('--end_date', type=str, default='0',
+#                    	help='End Date for monitoring ')
 
 	#FLAGS = parser.parse_args()
 	FLAGS = parser.parse_known_args()
@@ -27,6 +31,14 @@ if __name__ == "__main__":
 	monitor_id = FLAGS.monitor_id 
 	start_date = datetime.date.today() - datetime.timedelta(1)  # Monitoring Start Date at 00:00:00 
 	end_date   = datetime.date.today()                 # Monitoring End date at 00:00:00
+	
+
+#	if FLAGS.start_date and FLAGS.end_date:
+#		start_date=FLAGS.start_date
+#		end_date=FLAGS.end_date
+#	else:
+#		start_date = datetime.date.today() - datetime.timedelta(1)  # Monitoring Start Date at 00:00:00 
+#		end_date   = datetime.date.today()                 # Monitoring End date at 00:00:00
 	
 	source = CrimsonSource()      ## Creating an instance of class CrimsonSource
 	

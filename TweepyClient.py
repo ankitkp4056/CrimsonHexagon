@@ -22,8 +22,8 @@ class TweepyClient(object):
         
     def get_tweet_from_url(self, url):
         tweet_id = url.split('/')[-1]
-        tweet = self.api.get_status(tweet_id)
-        return [tweet._json['text'], tweet._json['created_at']]
+        tweet = self.api.get_status(tweet_id, tweet_mode='extended')
+        return [tweet._json['full_text'], tweet._json['created_at']]
 
     def add_detail(self, json_data):
         for post in json_data:
